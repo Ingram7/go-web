@@ -22,12 +22,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	// 获取数据库驱动中的sql.DB对象。
+
 	db := drv.DB()
 	db.SetMaxIdleConns(10)
 	db.SetMaxOpenConns(100)
 	db.SetConnMaxLifetime(time.Hour)
-	client :=  ent.NewClient(ent.Driver(drv))
+	client := ent.NewClient(ent.Driver(drv))
 
 	engine := gin.New()
 
